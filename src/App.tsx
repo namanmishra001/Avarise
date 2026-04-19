@@ -11,7 +11,11 @@ import {
   Menu,
   X,
   ArrowRight,
-  FlaskConical
+  FlaskConical,
+  Microscope,
+  Award,
+  Users,
+  CheckCircle2
 } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
@@ -32,6 +36,9 @@ export default function App() {
     setWaForm({ name: '', phone: '', message: '' });
   };
 
+  // Active Category State
+  const [activeCategory, setActiveCategory] = useState('All');
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -50,98 +57,98 @@ export default function App() {
   const products = [
     {
       title: "AVAFEN-P",
-      category: "Analgesic & Anti-inflammatory",
+      category: "Pain Management",
       composition: "Aceclofenac 100mg + Paracetamol 325mg",
       description: "Potent & trusted formulation for synergistic action against sprains, arthritis, ENT inflammation, and post-operative pain. Lower risk of GI bleeding.",
       icon: <ShieldCheck className="w-8 h-8 text-brand" />
     },
     {
       title: "AVAFEN-MF",
-      category: "Safe Antipyretic",
+      category: "Pain Management",
       composition: "Paracetamol 250mg + Mefenamic Acid 100mg",
       description: "Fast onset and long duration (up to 8 hrs) control of pain and fever. Safe and effective, particularly suited for pediatric patients.",
       icon: <Activity className="w-8 h-8 text-brand" />
     },
     {
       title: "AVAFEN-SP",
-      category: "Healing & Recovery",
+      category: "Pain Management",
       composition: "Aceclofenac + Paracetamol + Serratiopeptidase",
       description: "Reduces swelling and improves microcirculation with anti-oedemic and fibrinolytic activity. Ideal for rheumatoid arthritis and sports injuries.",
       icon: <Pill className="w-8 h-8 text-brand" />
     },
     {
       title: "AVAFEN-TH",
-      category: "Muscle Relaxant",
+      category: "Muscle & Spasm",
       composition: "Aceclofenac 100mg + Thiocolchicoside 4mg",
       description: "Provides enhanced, faster mobility in muscular spasms, acute low back pain, and neuromuscular conditions with a wide safety margin.",
       icon: <HeartHandshake className="w-8 h-8 text-brand" />
     },
     {
       title: "AVAFEN-DV",
-      category: "Anti-Spasmodic",
+      category: "Muscle & Spasm",
       composition: "Aceclofenac 100mg + Drotaverine 80mg",
       description: "Perfect for spasmodic pain, renal colic, and spasmodic dysmenorrhea. Accelerates relief smoothly with better GI tolerability.",
       icon: <Activity className="w-8 h-8 text-brand" />
     },
     {
       title: "MONTIRISE-L",
-      category: "Anti-Allergic",
+      category: "Respiratory & Allergy",
       composition: "Levocetirizine HCL + Montelukast",
       description: "Rapid onset relief over 24 hours against seasonal allergic rhinitis and asthma-associated allergies. Exerts 20x better receptor affinity.",
       icon: <ShieldCheck className="w-8 h-8 text-brand" />
     },
     {
       title: "GAELICTUS-LS",
-      category: "Respiratory & Cough",
+      category: "Respiratory & Allergy",
       composition: "Levosalbutamol + Ambroxol + Guaiphenesin",
       description: "Trusted bronchodilator, mucolytic, and expectorant to combat heavy chest congestion, bronchitis, wheezing, and COPD.",
       icon: <FlaskConical className="w-8 h-8 text-brand" />
     },
     {
       title: "AVALIV-DS",
-      category: "Hepato-Protective",
+      category: "Gastro & Hepato",
       composition: "Silymarin + Picorrhiza Kurroa + Natural Extracts",
       description: "Regenerator and protectant against hepatotoxins. Effectively treats acute hepatitis, fatty liver, jaundice, and drug-induced toxicity.",
       icon: <ShieldCheck className="w-8 h-8 text-brand" />
     },
     {
       title: "MYLYCO-GOLD",
-      category: "Vitality & Antioxidant",
+      category: "Vitamins & Nutrition",
       composition: "Lycopene, Multivitamins, L-Lysine & Minerals",
       description: "Overcomes oxidative stress, scavenges free radicals, boosts the immune system, and minimizes risks of post-surgery infections.",
       icon: <HeartHandshake className="w-8 h-8 text-brand" />
     },
     {
       title: "MYLYCO-Q10",
-      category: "Cardiovascular Support",
+      category: "Cardiovascular",
       composition: "CoQ10 + Selenium + L-Carnitine + Lycopene",
       description: "Nurture's treatment for reducing the risk of pre-eclampsia by nearly 50%. Improves lipid profiles, microcirculation, and heart health.",
       icon: <Activity className="w-8 h-8 text-brand" />
     },
     {
       title: "CORBIFER-XT",
-      category: "Haematinic",
+      category: "Vitamins & Nutrition",
       composition: "Ferrous Ascorbate + Folic Acid + Vit B12 + L-Lysine",
       description: "Advanced supplement for treating and preventing iron deficiency anemia, malnutrition, and general post-illness debility.",
       icon: <Pill className="w-8 h-8 text-brand" />
     },
     {
       title: "LEVORISE-OZ",
-      category: "Antibiotic",
+      category: "Anti-Infective",
       composition: "Levofloxacin 125mg + Ornidazole 125mg",
       description: "A powerful, speedy combination acting effectively against mixed infections, amoebic dysentery, and infectious diarrhoea.",
       icon: <FlaskConical className="w-8 h-8 text-brand" />
     },
     {
       title: "AVARAB-DSR",
-      category: "Gastro Care",
+      category: "Gastro & Hepato",
       composition: "Rabeprazole (EC) 20mg + Domperidone (SR) 30mg",
       description: "Rapid first-day control of acidity. Superior prokinetic & antiemetic functioning for GERD, nausea, and reflux esophagitis.",
       icon: <Activity className="w-8 h-8 text-brand" />
     },
     {
       title: "APTIROZ",
-      category: "Appetite Stimulant",
+      category: "Vitamins & Nutrition",
       composition: "Cyproheptadine + Multivitamins + Zinc",
       description: "Evokes appetite, supports metabolism, and boosts healthy weight gain. Tailored for anorexia and post-illness convalescence.",
       icon: <HeartHandshake className="w-8 h-8 text-brand" />
@@ -155,12 +162,15 @@ export default function App() {
     },
     {
       title: "APLATIRISE",
-      category: "Immune Booster",
+      category: "Anti-Infective",
       composition: "Carica Papaya + Giloye + Vitamin E + Goat Milk",
       description: "Stimulates platelet production and combats oxidative damage. The perfect natural defender against Dengue, Malaria, and viral fevers.",
       icon: <Pill className="w-8 h-8 text-brand" />
     }
   ];
+
+  const categories = ['All', ...new Set(products.map(p => p.category))];
+  const filteredProducts = activeCategory === 'All' ? products : products.filter(p => p.category === activeCategory);
 
   return (
     <div className="min-h-screen bg-paper font-sans text-ink scroll-smooth selection:bg-brand selection:text-white">
@@ -381,40 +391,174 @@ export default function App() {
         </div>
       </section>
 
+      {/* Why Choose Us & Quality Assurance Section */}
+      <section className="py-24 bg-white border-b border-stone relative overflow-hidden">
+        {/* Subtle Background Accent */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-light border-l border-stone opacity-50 pointer-events-none"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+          
+          {/* Quality Assurance Banner */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-24 flex flex-col md:flex-row items-center border border-stone bg-ink overflow-hidden shadow-2xl"
+          >
+            <div className="p-8 md:p-12 lg:p-16 flex-1 text-white">
+              <div className="flex items-center gap-3 mb-4">
+                <Award className="w-6 h-6 text-brand" />
+                <span className="text-[11px] uppercase tracking-[3px] font-bold text-white/80">Compliance & Trust</span>
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">Assuring Quality at <br className="hidden md:block"/> Every Lifecycle Stage.</h2>
+              <p className="text-white/70 text-sm md:text-base leading-relaxed max-w-lg mb-8">
+                Strict adherence to WHO & GMP compliance guidelines. Our facilities enforce rigorous testing and multi-stage inspections, guaranteeing maximum efficacy and patient safety across all 16 registered formulations.
+              </p>
+              
+              <ul className="space-y-3">
+                {['WHO-GMP Compliant Facilities', 'Stringent Quality Control (QC)', 'Temperature-Controlled Logistics', 'Batch-to-Batch Consistency'].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-brand" />
+                    <span className="text-sm font-medium text-white/90 tracking-wide">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div className="hidden md:block w-2/5 aspect-square relative border-l border-white/10 shrink-0 right-0">
+               <img 
+                  src="https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=800&auto=format&fit=crop" 
+                  alt="Quality Lab Focus" 
+                  className="w-full h-full object-cover opacity-80 mix-blend-luminosity"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-ink/30"></div>
+            </div>
+          </motion.div>
+
+          {/* Why Choose Us Pillars */}
+          <div className="text-center md:text-left mb-16">
+            <span className="block text-[11px] uppercase tracking-[3px] text-brand font-bold mb-4">
+              Our Pillars
+            </span>
+            <h2 className="font-serif text-4xl font-bold text-ink tracking-tight">Why Choose Us</h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-paper border border-stone p-10 hover:border-brand transition-colors duration-300 group"
+            >
+              <div className="w-14 h-14 bg-white border border-stone flex items-center justify-center mb-8 group-hover:bg-brand group-hover:border-brand transition-all duration-300">
+                <ShieldCheck className="w-6 h-6 text-brand group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="font-serif text-xl font-bold text-ink mb-4">Quality Assurance</h3>
+              <p className="text-[14px] text-muted leading-relaxed">
+                We refuse to compromise on health. Every product released by Avarise passes comprehensive analytical and microbiological testing to exceed industry benchmarks.
+              </p>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-paper border border-stone p-10 hover:border-brand transition-colors duration-300 group"
+            >
+              <div className="w-14 h-14 bg-white border border-stone flex items-center justify-center mb-8 group-hover:bg-brand group-hover:border-brand transition-all duration-300">
+                <Microscope className="w-6 h-6 text-brand group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="font-serif text-xl font-bold text-ink mb-4">Research & Development</h3>
+              <p className="text-[14px] text-muted leading-relaxed">
+                Driven by continuous innovation, our R&D focus is optimizing existing formulas, like our potent Aceclofenac blends, to elevate patient outcomes.
+              </p>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-paper border border-stone p-10 hover:border-brand transition-colors duration-300 group"
+            >
+              <div className="w-14 h-14 bg-white border border-stone flex items-center justify-center mb-8 group-hover:bg-brand group-hover:border-brand transition-all duration-300">
+                <Users className="w-6 h-6 text-brand group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="font-serif text-xl font-bold text-ink mb-4">Customer Centricity</h3>
+              <p className="text-[14px] text-muted leading-relaxed">
+                Our operations align purely with distributor and clinical requirements. We prioritize swift supply chains and constant, transparent communication.
+              </p>
+            </motion.div>
+          </div>
+
+        </div>
+      </section>
+
       {/* Products Section */}
       <section id="products" className="py-24 lg:py-32 bg-paper border-b border-stone">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="mb-16">
-            <span className="block text-[11px] uppercase tracking-[3px] text-brand font-bold mb-4">
-              Our Portfolio
-            </span>
-            <h2 className="font-serif text-4xl font-bold text-ink tracking-tight">Medical Focus Areas</h2>
+          <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-8 mb-16">
+            <div className="shrink-0">
+              <span className="block text-[11px] uppercase tracking-[3px] text-brand font-bold mb-4">
+                Our Portfolio
+              </span>
+              <h2 className="font-serif text-4xl font-bold text-ink tracking-tight">Medical Focus Areas</h2>
+            </div>
+            
+            {/* Interactive Product Filters */}
+            <div className="flex flex-wrap gap-2 xl:justify-end">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`px-4 py-2 text-[10px] sm:text-[11px] font-bold uppercase tracking-[1px] transition-all duration-300 border focus:outline-none ${
+                    activeCategory === category 
+                      ? 'bg-ink text-white border-ink shadow-sm' 
+                      : 'bg-white text-muted border-stone hover:border-brand hover:text-brand hover:shadow-sm'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: (idx % 3) * 0.15 }}
-                className="bg-white border border-stone p-8 flex flex-col items-start hover:border-brand transition-colors duration-300 group"
-              >
-                <div className="mb-8 p-3 border border-stone bg-paper text-brand group-hover:bg-brand group-hover:text-white transition-colors duration-300">
-                  {product.icon}
-                </div>
-                <div className="w-full">
-                  <div className="text-[10px] text-muted uppercase tracking-[1px] mb-2 font-bold">{idx < 9 ? `0${idx + 1}` : idx + 1} // {product.category}</div>
-                  <h3 className="font-serif text-[22px] font-bold text-ink mb-1">{product.title}</h3>
-                  <p className="text-[11px] font-semibold text-brand mb-3 uppercase tracking-wide leading-snug">{product.composition}</p>
-                  <p className="text-[13px] text-muted leading-[1.6]">
-                    {product.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div 
+            layout 
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            <AnimatePresence mode="popLayout">
+              {filteredProducts.map((product, idx) => (
+                <motion.div 
+                  key={product.title}
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4 }}
+                  className="bg-white border border-stone p-8 flex flex-col items-start hover:border-brand transition-colors duration-300 group"
+                >
+                  <div className="mb-8 p-3 border border-stone bg-paper text-brand group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+                    {product.icon}
+                  </div>
+                  <div className="w-full">
+                    <div className="text-[10px] text-muted uppercase tracking-[1px] mb-2 font-bold whitespace-nowrap overflow-hidden text-ellipsis">
+                      {idx < 9 ? `0${idx + 1}` : idx + 1} // {product.category}
+                    </div>
+                    <h3 className="font-serif text-[22px] font-bold text-ink mb-1">{product.title}</h3>
+                    <p className="text-[11px] font-semibold text-brand mb-3 uppercase tracking-wide leading-snug">{product.composition}</p>
+                    <p className="text-[13px] text-muted leading-[1.6]">
+                      {product.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
         </div>
       </section>
 
