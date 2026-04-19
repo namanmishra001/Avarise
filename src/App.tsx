@@ -173,9 +173,30 @@ export default function App() {
   const filteredProducts = activeCategory === 'All' ? products : products.filter(p => p.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-paper font-sans text-ink scroll-smooth selection:bg-brand selection:text-white">
+    <div className="min-h-screen bg-paper font-sans text-ink scroll-smooth selection:bg-brand selection:text-white pt-[36px]">
+      
+      {/* Eyebrow / Top Bar */}
+      <div className="fixed top-0 w-full h-[36px] bg-ink text-white z-[60] flex items-center justify-between px-6 lg:px-12 text-[10px] sm:text-[11px] font-bold uppercase tracking-[2px]">
+        <div className="flex items-center gap-4">
+          <span className="hidden sm:inline-flex items-center gap-2">
+            <ShieldCheck className="w-3 h-3 text-brand" /> ISO 9001:2015 Certified
+          </span>
+          <span className="sm:border-l border-white/20 sm:pl-4 inline-flex items-center gap-2 text-white/80">
+            <MapPin className="w-3 h-3 text-brand" /> Serving Uttar Pradesh
+          </span>
+        </div>
+        <div className="hidden md:flex items-center gap-6">
+          <a href="mailto:avarise.lifesciences@gmail.com" className="hover:text-brand transition-colors inline-flex items-center gap-2">
+            <Mail className="w-3 h-3" /> avarise.lifesciences@gmail.com
+          </a>
+          <a href="tel:+919415667380" className="hover:text-brand transition-colors inline-flex items-center gap-2 text-brand">
+            <Phone className="w-3 h-3" /> +91 94156 67380
+          </a>
+        </div>
+      </div>
+
       {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white border-b border-stone py-4' : 'bg-paper/95 backdrop-blur-sm py-6 border-b border-stone/50'}`}>
+      <nav className={`fixed top-[36px] w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white border-b border-transparent py-4 shadow-xl shadow-stone/20' : 'bg-white/95 backdrop-blur-md py-6 border-b border-stone/50'}`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex justify-between items-baseline">
             <div className="flex items-center gap-3">
@@ -197,7 +218,7 @@ export default function App() {
               ))}
               <a 
                 href="#contact" 
-                className="border border-stone hover:border-brand text-ink hover:text-brand px-6 py-2.5 text-[11px] font-semibold uppercase tracking-widest transition-colors bg-white shadow-sm hover:shadow-none"
+                className="bg-ink text-white hover:bg-brand px-7 py-3 text-[11px] font-bold uppercase tracking-widest transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5"
               >
                 Get in Touch
               </a>
