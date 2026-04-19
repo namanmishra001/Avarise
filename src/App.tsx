@@ -418,9 +418,56 @@ export default function App() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Partnership & Contact Section */}
       <section id="contact" className="py-24 lg:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          
+          {/* Become a Partner Callout */}
+          <div className="mb-20 bg-ink text-white pr-0 lg:pr-12 border border-ink flex flex-col lg:flex-row shadow-2xl relative overflow-hidden group">
+            {/* Background design artifact */}
+            <div className="absolute -right-20 -top-20 w-64 h-64 bg-white/5 rounded-full blur-3xl group-hover:bg-brand/20 transition-colors duration-700 pointer-events-none"></div>
+            
+            <div className="p-10 sm:p-14 lg:p-16 flex-1 relative z-10">
+              <span className="inline-block px-3 py-1 bg-white/10 text-white border border-white/20 text-[10px] uppercase tracking-[3px] font-bold mb-6">
+                B2B Distribution
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 leading-tight">
+                Become a Partner
+              </h2>
+              <p className="text-white/70 text-[15px] sm:text-[18px] mb-8 leading-[1.7] max-w-xl">
+                Avarise Lifescience operates a trusted B2B pharmaceutical distribution network across Uttar Pradesh. We supply our 16 highly-specialized medical products directly to vetted healthcare channels.
+              </p>
+              
+              <div className="grid sm:grid-cols-3 gap-6 pt-6 border-t border-white/10">
+                <div className="flex flex-col gap-2">
+                  <div className="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-brand">
+                    <FlaskConical className="w-4 h-4 text-white" />
+                  </div>
+                  <h4 className="text-[14px] font-bold tracking-wide mt-2">Chemists & Retail</h4>
+                  <p className="text-[11px] text-white/50 leading-relaxed uppercase tracking-wider">Direct supply chains</p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <div className="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-brand">
+                    <Activity className="w-4 h-4 text-white" />
+                  </div>
+                  <h4 className="text-[14px] font-bold tracking-wide mt-2">Clinics & Hospitals</h4>
+                  <p className="text-[11px] text-white/50 leading-relaxed uppercase tracking-wider">Clinical formulations</p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <div className="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-brand">
+                    <HeartHandshake className="w-4 h-4 text-white" />
+                  </div>
+                  <h4 className="text-[14px] font-bold tracking-wide mt-2">Stockists/Distributors</h4>
+                  <p className="text-[11px] text-white/50 leading-relaxed uppercase tracking-wider">Wholesale networks</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="hidden lg:flex items-center justify-end flex-none w-1/4 relative z-10 shrink-0">
+               <ArrowRight className="w-24 h-24 text-white/10 group-hover:text-brand/40 group-hover:-translate-x-4 transition-all duration-500" />
+            </div>
+          </div>
+
           <div className="border border-stone flex flex-col lg:flex-row bg-paper">
             
             <div className="p-10 sm:p-16 lg:p-20 flex-1 border-b lg:border-b-0 lg:border-r border-stone bg-light">
@@ -429,49 +476,78 @@ export default function App() {
               </span>
               <h2 className="font-serif text-4xl sm:text-[48px] font-bold text-ink tracking-tight mb-6">Get in Touch</h2>
               <p className="text-muted text-[16px] mb-12 leading-[1.6] max-w-md">
-                Have questions about our products or want to partner with us? Our professional team is ready to assist you.
+                Have questions about our portfolio or want to inquire about B2B distribution? Our professional team is ready to assist you.
               </p>
               
-              <div className="space-y-10">
+              <div className="space-y-8">
                 <div className="flex flex-col">
-                  <h4 className="text-[10px] uppercase tracking-[2px] text-muted font-bold mb-2">Direct Line</h4>
-                  <div className="text-[16px] text-ink font-medium space-y-2">
-                    <a href="tel:+919415667380" className="hover:text-brand transition-colors block">+91 94156 67380</a>
-                    <a href="tel:+919918881816" className="hover:text-brand transition-colors block">+91 99188 81816</a>
+                  <h4 className="text-[10px] uppercase tracking-[2px] text-muted font-bold mb-3">Direct Line</h4>
+                  <div className="text-[16px] text-ink font-medium space-y-3">
+                    <a href="tel:+919415667380" className="group flex items-center gap-3 w-fit hover:text-brand transition-colors duration-300">
+                      <div className="w-10 h-10 rounded-full bg-white border border-stone flex items-center justify-center group-hover:bg-brand group-hover:border-brand group-hover:text-white transition-all duration-300 shadow-sm">
+                        <Phone className="w-4 h-4" />
+                      </div>
+                      <span className="group-hover:translate-x-1 transition-transform duration-300">+91 94156 67380</span>
+                    </a>
+                    <a href="tel:+919918881816" className="group flex items-center gap-3 w-fit hover:text-brand transition-colors duration-300">
+                      <div className="w-10 h-10 rounded-full bg-white border border-stone flex items-center justify-center group-hover:bg-brand group-hover:border-brand group-hover:text-white transition-all duration-300 shadow-sm">
+                        <Phone className="w-4 h-4" />
+                      </div>
+                      <span className="group-hover:translate-x-1 transition-transform duration-300">+91 99188 81816</span>
+                    </a>
                   </div>
                 </div>
                 
                 <div className="flex flex-col">
-                  <h4 className="text-[10px] uppercase tracking-[2px] text-muted font-bold mb-2">Email Support</h4>
-                  <p className="text-[16px] text-ink font-medium">
-                    <a href="mailto:avarise.lifesciences@gmail.com" className="hover:text-brand transition-colors">
-                      avarise.lifesciences@gmail.com
+                  <h4 className="text-[10px] uppercase tracking-[2px] text-muted font-bold mb-3">Email Support</h4>
+                  <div className="text-[16px] text-ink font-medium">
+                    <a href="mailto:avarise.lifesciences@gmail.com" className="group flex items-center gap-3 w-fit hover:text-brand transition-colors duration-300">
+                      <div className="w-10 h-10 rounded-full bg-white border border-stone flex items-center justify-center group-hover:bg-brand group-hover:border-brand group-hover:text-white transition-all duration-300 shadow-sm">
+                        <Mail className="w-4 h-4" />
+                      </div>
+                      <span className="group-hover:translate-x-1 transition-transform duration-300">avarise.lifesciences@gmail.com</span>
                     </a>
-                  </p>
+                  </div>
                 </div>
                 
                 <div className="flex flex-col">
-                  <h4 className="text-[10px] uppercase tracking-[2px] text-muted font-bold mb-2">Corporate Office</h4>
-                  <p className="text-[16px] text-ink font-medium">Uttar Pradesh, India</p>
+                  <h4 className="text-[10px] uppercase tracking-[2px] text-muted font-bold mb-3">Corporate Office</h4>
+                  <div className="group flex items-center gap-3 w-fit">
+                    <div className="w-10 h-10 rounded-full bg-white border border-stone flex items-center justify-center shadow-sm">
+                      <MapPin className="w-4 h-4 text-brand" />
+                    </div>
+                    <span className="text-[16px] text-ink font-medium">Uttar Pradesh, India</span>
+                  </div>
                 </div>
               </div>
             </div>
             
             <div className="p-10 sm:p-16 flex-1 flex flex-col justify-center bg-white">
               <form className="w-full max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
-                <h3 className="font-serif text-2xl font-bold text-ink mb-10 pb-4 border-b border-stone">Send a Message</h3>
+                <h3 className="font-serif text-2xl font-bold text-ink mb-10 pb-4 border-b border-stone">Partnership Inquiry</h3>
                 <div className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-[11px] font-bold uppercase tracking-widest text-ink mb-2">Full Name</label>
-                    <input type="text" id="name" className="w-full px-4 py-3 bg-paper border border-stone focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all text-[14px]" placeholder="John Doe" />
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="name" className="block text-[11px] font-bold uppercase tracking-widest text-ink mb-2">Full Name</label>
+                      <input type="text" id="name" className="w-full px-4 py-3 bg-paper border border-stone focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all text-[14px]" placeholder="John Doe" />
+                    </div>
+                    <div>
+                       <label htmlFor="business" className="block text-[11px] font-bold uppercase tracking-widest text-ink mb-2">Business Type</label>
+                       <select id="business" className="w-full px-4 py-3 bg-paper border border-stone focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all text-[14px] text-ink appearance-none">
+                         <option>Chemist / Pharmacy</option>
+                         <option>Clinic / Hospital</option>
+                         <option>Distributor</option>
+                         <option>Other</option>
+                       </select>
+                    </div>
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-[11px] font-bold uppercase tracking-widest text-ink mb-2">Email Address</label>
-                    <input type="email" id="email" className="w-full px-4 py-3 bg-paper border border-stone focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all text-[14px]" placeholder="john@example.com" />
+                    <label htmlFor="email" className="block text-[11px] font-bold uppercase tracking-widest text-ink mb-2">Email or Phone</label>
+                    <input type="text" id="contact_method" className="w-full px-4 py-3 bg-paper border border-stone focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all text-[14px]" placeholder="Contact details" />
                   </div>
                   <div>
                     <label htmlFor="message" className="block text-[11px] font-bold uppercase tracking-widest text-ink mb-2">Message</label>
-                    <textarea id="message" rows={4} className="w-full px-4 py-3 bg-paper border border-stone focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all resize-none text-[14px]" placeholder="How can we help you?"></textarea>
+                    <textarea id="message" rows={4} className="w-full px-4 py-3 bg-paper border border-stone focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all resize-none text-[14px]" placeholder="Tell us about your distribution needs..."></textarea>
                   </div>
                   <button type="submit" className="w-full py-4 bg-ink hover:bg-brand text-white font-bold text-[11px] uppercase tracking-widest transition-colors mt-4">
                     Submit Inquiry
@@ -529,17 +605,34 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Floating WhatsApp Button */}
-      <button
-        onClick={() => setIsWhatsAppModalOpen(true)}
-        className="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all duration-300 group outline-none border-none cursor-pointer"
-        aria-label="Chat on WhatsApp"
-      >
-        <FaWhatsapp size={32} />
-        <span className="absolute right-full mr-4 bg-ink text-white text-[11px] font-bold uppercase tracking-widest py-3 px-5 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap hidden sm:block">
-          Direct Support line
-        </span>
-      </button>
+      {/* Floating Action Buttons */}
+      <div className="fixed bottom-8 left-4 sm:left-8 z-50 flex flex-col gap-4">
+        {/* Floating Call Button */}
+        <a
+          href="tel:+919415667380"
+          className="w-16 h-16 bg-brand text-white rounded-full flex items-center justify-center shadow-lg hover:bg-brand/90 transition-all duration-300 group outline-none border-none cursor-pointer"
+          aria-label="Call Directly"
+        >
+          <Phone className="w-7 h-7" />
+          <span className="absolute left-full ml-4 bg-ink text-white text-[11px] font-bold uppercase tracking-widest py-3 px-5 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap hidden sm:block">
+            Direct Line: 9415667380
+          </span>
+        </a>
+      </div>
+
+      <div className="fixed bottom-8 right-4 sm:right-8 z-50 flex flex-col gap-4">
+        {/* Floating WhatsApp Button */}
+        <button
+          onClick={() => setIsWhatsAppModalOpen(true)}
+          className="w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all duration-300 group outline-none border-none cursor-pointer"
+          aria-label="Chat on WhatsApp"
+        >
+          <FaWhatsapp size={32} />
+          <span className="absolute right-full mr-4 bg-ink text-white text-[11px] font-bold uppercase tracking-widest py-3 px-5 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap hidden sm:block">
+            Direct Support line
+          </span>
+        </button>
+      </div>
 
       {/* WhatsApp Modal */}
       <AnimatePresence>
