@@ -217,40 +217,94 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative pt-40 pb-20 lg:pt-56 lg:pb-32 bg-paper border-b border-stone">
+      <section id="home" className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 bg-paper border-b border-stone overflow-hidden">
+        {/* Subtle background split block for editorial depth */}
+        <div className="absolute top-0 right-0 w-[45%] h-full bg-light border-l border-stone hidden lg:block z-0"></div>
+        
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-          <div className="max-w-3xl">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            
+            {/* Left Content */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
+              className="max-w-xl py-10"
             >
-              <span className="block text-[11px] uppercase tracking-[3px] text-brand font-bold mb-6">
-                Healthcare Excellence
-              </span>
-              <h1 className="font-serif text-5xl sm:text-[72px] font-bold text-ink leading-[0.95] tracking-[-2px] mb-8">
-                Precision in Every Formula.
+              <div className="flex items-center gap-4 mb-8">
+                <div className="h-[1px] w-8 bg-brand"></div>
+                <span className="text-[10px] uppercase tracking-[4px] text-brand font-bold">
+                  Healthcare Excellence
+                </span>
+              </div>
+              
+              <h1 className="font-serif text-[48px] sm:text-[64px] lg:text-[76px] font-bold text-ink leading-[1] tracking-[-2px] mb-8">
+                Precision in <br />
+                <span className="italic text-brand font-normal leading-[1.1]">Every Formula.</span>
               </h1>
-              <p className="text-base sm:text-[16px] text-muted mb-10 max-w-xl leading-[1.6]">
+              
+              <p className="text-base sm:text-[18px] text-muted mb-12 max-w-lg leading-[1.7]">
                 Avarise Lifescience PVT LTD is dedicated to enhancing human health through high-efficacy pharmaceutical solutions. We specialize in pain management, nutrition, and gastrointestinal care.
               </p>
               
-              <div className="bg-light p-5 border-l-4 border-brand max-w-sm mb-10">
-                <p className="text-[14px] text-ink font-medium leading-relaxed">
-                  Primary Strategic Focus: <br />
-                  <strong className="font-bold text-brand mt-1 block tracking-wide">Uttar Pradesh, India</strong>
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8">
                 <a 
                   href="#products" 
-                  className="inline-flex items-center justify-center px-8 py-4 text-[11px] font-bold uppercase tracking-widest text-white bg-ink hover:bg-brand transition-colors border border-transparent hover:border-brand"
+                  className="group inline-flex items-center justify-center px-8 py-4 text-[11px] font-bold uppercase tracking-widest text-white bg-ink hover:bg-brand transition-colors duration-300 border border-ink hover:border-brand"
                 >
-                  Explore Products <ArrowRight className="ml-3 w-4 h-4" />
+                  Explore Products 
+                  <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
+                
+                <div className="flex items-center gap-3 text-[12px] font-medium text-muted">
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full border border-stone bg-white shadow-sm">
+                    <Activity className="w-4 h-4 text-brand" />
+                  </div>
+                  <span>16+ Premium<br/>Formulations</span>
+                </div>
               </div>
             </motion.div>
+
+            {/* Right Content / Aesthetic Elements */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+              className="relative hidden md:block"
+            >
+              <div className="relative aspect-[4/5] w-full max-w-md ml-auto border border-stone bg-white p-2 shadow-2xl z-10 rotate-1 hover:rotate-0 transition-transform duration-700">
+                <img 
+                  src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=1200&auto=format&fit=crop" 
+                  alt="Pharmaceutical precision" 
+                  className="w-full h-full object-cover grayscale-[20%] contrast-125"
+                  referrerPolicy="no-referrer"
+                />
+                
+                {/* Embedded Stats Overlay - Editorial touch */}
+                <div className="absolute top-8 -left-8 bg-ink border border-stone p-5 text-white shadow-xl shadow-ink/10">
+                    <p className="text-[10px] uppercase tracking-[2px] opacity-70 mb-1">Quality Assured</p>
+                    <p className="font-serif text-3xl font-bold">100%</p>
+                </div>
+              </div>
+
+              {/* Floating Strategic Focus Badge */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="absolute -bottom-6 left-4 lg:-left-12 bg-white border border-stone shadow-xl p-5 sm:p-6 z-20 max-w-sm flex items-start gap-5 group hover:border-brand transition-colors duration-300"
+              >
+                <div className="w-12 h-12 bg-paper border border-stone flex items-center justify-center shrink-0 group-hover:bg-brand transition-colors duration-300">
+                  <MapPin className="w-5 h-5 text-brand group-hover:text-white transition-colors duration-300" />
+                </div>
+                <div>
+                  <h4 className="text-[10px] uppercase tracking-[2px] text-muted font-bold mb-1">Primary Strategic Focus</h4>
+                  <p className="text-[20px] font-serif font-bold text-ink leading-tight mb-2">Uttar Pradesh, India</p>
+                  <p className="text-[12px] text-muted leading-snug">Delivering reliable healthcare where it matters most.</p>
+                </div>
+              </motion.div>
+            </motion.div>
+
           </div>
         </div>
       </section>
