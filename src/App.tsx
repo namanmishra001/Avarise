@@ -176,13 +176,13 @@ export default function App() {
     <div className="min-h-screen bg-paper font-sans text-ink scroll-smooth selection:bg-brand selection:text-white pt-[36px]">
       
       {/* Eyebrow / Top Bar */}
-      <div className="fixed top-0 w-full h-[36px] bg-ink text-white z-[60] flex items-center justify-between px-6 lg:px-12 text-[10px] sm:text-[11px] font-bold uppercase tracking-[2px]">
-        <div className="flex items-center gap-4">
-          <span className="hidden sm:inline-flex items-center gap-2">
-            <ShieldCheck className="w-3 h-3 text-brand" /> ISO 9001:2015 Certified
+      <div className="fixed top-0 w-full h-[36px] bg-ink text-white z-[60] flex items-center justify-center md:justify-between px-4 sm:px-6 lg:px-12 text-[9px] sm:text-[11px] font-bold uppercase tracking-[1px] sm:tracking-[2px]">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <span className="inline-flex items-center gap-1.5 sm:gap-2">
+            <ShieldCheck className="w-3 h-3 text-brand shrink-0" /> ISO 9001:2015 Certified
           </span>
-          <span className="sm:border-l border-white/20 sm:pl-4 inline-flex items-center gap-2 text-white/80">
-            <MapPin className="w-3 h-3 text-brand" /> Serving Uttar Pradesh
+          <span className="border-l border-white/20 pl-3 sm:pl-4 inline-flex items-center gap-1.5 sm:gap-2 text-white/80">
+            <MapPin className="w-3 h-3 text-brand shrink-0" /> Serving Uttar Pradesh
           </span>
         </div>
         <div className="hidden md:flex items-center gap-6">
