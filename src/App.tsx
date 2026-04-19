@@ -18,6 +18,19 @@ import { FaWhatsapp } from 'react-icons/fa';
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  // WhatsApp Modal State
+  const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
+  const [waForm, setWaForm] = useState({ name: '', phone: '', message: '' });
+
+  const handleWhatsAppSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const text = `*New Website Inquiry*\n\n*Name:* ${waForm.name}\n*Phone:* ${waForm.phone}\n*Message:* ${waForm.message}`;
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://wa.me/919415667380?text=${encodedText}`, '_blank');
+    setIsWhatsAppModalOpen(false);
+    setWaForm({ name: '', phone: '', message: '' });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -517,18 +530,109 @@ export default function App() {
       </footer>
 
       {/* Floating WhatsApp Button */}
-      <a
-        href="https://wa.me/919415667380"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all duration-300 group"
+      <button
+        onClick={() => setIsWhatsAppModalOpen(true)}
+        className="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all duration-300 group outline-none border-none cursor-pointer"
         aria-label="Chat on WhatsApp"
       >
         <FaWhatsapp size={32} />
         <span className="absolute right-full mr-4 bg-ink text-white text-[11px] font-bold uppercase tracking-widest py-3 px-5 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap hidden sm:block">
           Direct Support line
         </span>
-      </a>
+      </button>
+
+      {/* WhatsApp Modal */}
+      <AnimatePresence>
+        {isWhatsAppModalOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            className="fixed bottom-28 right-4 sm:right-8 z-[60] w-[calc(100vw-32px)] sm:w-[360px] bg-white rounded-3xl shadow-[0_12px_48px_-12px_rgba(0,0,0,0.25)] overflow-hidden font-sans border border-gray-100"
+          >
+            {/* Modal Header */}
+            <div className="bg-gradient-to-br from-[#128C7E] to-[#25D366] p-6 pb-8 text-white relative">
+              <button 
+                onClick={() => setIsWhatsAppModalOpen(false)}
+                className="absolute top-4 right-4 text-white/80 hover:text-white hover:bg-white/20 p-1.5 rounded-full transition-colors"
+                aria-label="Close"
+              >
+                <X className="w-4 h-4" />
+              </button>
+              <div className="flex items-center gap-4 mt-2">
+                <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm shadow-inner shrink-0">
+                  <FaWhatsapp size={32} className="text-white drop-shadow-sm" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-[18px] leading-tight mb-1.5">Avarise Lifescience</h3>
+                  <div className="flex items-center gap-2 opacity-95">
+                    <span className="relative flex h-2.5 w-2.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-100 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-50 shadow-sm"></span>
+                    </span>
+                    <p className="text-[12px] font-medium tracking-wide">Typically replies instantly</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-6 bg-[#FAFAFA] relative">
+              {/* Overlapping wave/curve aesthetic */}
+              <div className="absolute top-[-16px] left-0 w-full h-4 bg-[#FAFAFA] rounded-t-2xl"></div>
+              
+              <form onSubmit={handleWhatsAppSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-xs font-bold text-gray-600 mb-1.5">
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    required
+                    value={waForm.name}
+                    onChange={(e) => setWaForm({...waForm, name: e.target.value})}
+                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-[#25D366] focus:ring-2 focus:ring-[#25D366]/20 outline-none transition-all text-sm bg-white shadow-sm"
+                    placeholder="e.g. John Doe"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-600 mb-1.5">
+                    Phone Number
+                  </label>
+                  <input 
+                    type="tel" 
+                    value={waForm.phone}
+                    onChange={(e) => setWaForm({...waForm, phone: e.target.value})}
+                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-[#25D366] focus:ring-2 focus:ring-[#25D366]/20 outline-none transition-all text-sm bg-white shadow-sm"
+                    placeholder="+91"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-600 mb-1.5">
+                    Your Inquiry <span className="text-red-500">*</span>
+                  </label>
+                  <textarea 
+                    required
+                    value={waForm.message}
+                    onChange={(e) => setWaForm({...waForm, message: e.target.value})}
+                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-[#25D366] focus:ring-2 focus:ring-[#25D366]/20 outline-none transition-all resize-none text-sm bg-white shadow-sm h-24"
+                    placeholder="How can we help you today?"
+                  ></textarea>
+                </div>
+                
+                <div className="pt-2">
+                  <button 
+                    type="submit"
+                    className="w-full py-4 bg-[#25D366] text-white text-[14px] font-bold rounded-xl hover:bg-[#128C7E] transition-all duration-300 flex justify-center items-center gap-2 shadow-[0_4px_14px_rgba(37,211,102,0.3)] hover:shadow-[0_6px_20px_rgba(18,140,126,0.4)] hover:-translate-y-0.5 active:translate-y-0"
+                  >
+                    Start Chat <span className="ml-1">💬</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
