@@ -201,7 +201,7 @@ export default function App() {
           <div className="flex justify-between items-baseline">
             <div className="flex items-center gap-3">
               <span className="font-serif font-bold text-xl sm:text-2xl tracking-tighter text-brand uppercase">
-                Avarise Lifescience
+                Avarise Life Sciences
               </span>
             </div>
             
@@ -288,7 +288,7 @@ export default function App() {
               </h1>
               
               <p className="text-base sm:text-[18px] text-muted mb-12 max-w-lg leading-[1.7]">
-                Avarise Lifescience PVT LTD is dedicated to enhancing human health through high-efficacy pharmaceutical solutions. We specialize in pain management, nutrition, and gastrointestinal care.
+                Avarise Life Sciences PVT LTD is dedicated to enhancing human health through high-efficacy pharmaceutical solutions. We specialize in pain management, nutrition, and gastrointestinal care.
               </p>
               
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8">
@@ -384,16 +384,16 @@ export default function App() {
               <span className="block text-[11px] uppercase tracking-[3px] text-brand font-bold mb-6">
                 Corporate Overview
               </span>
-              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-ink tracking-tight mb-8">About Avarise Lifescience</h2>
+              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-ink tracking-tight mb-8">About Avarise Life Sciences</h2>
               <div className="space-y-6 text-[16px] text-muted leading-[1.6]">
                 <p>
-                  At <strong className="text-ink font-semibold">Avarise Lifescience PVT LTD.</strong>, we are committed to improving health outcomes by providing top-tier pharmaceutical products. 
+                  At <strong className="text-ink font-semibold">Avarise Life Sciences PVT LTD.</strong>, we are committed to improving health outcomes by providing top-tier pharmaceutical products. 
                 </p>
                 <p>
                   With a strong strategic focus on the vibrant state of Uttar Pradesh, India, our goal is to bridge the gap between quality healthcare and accessibility. From vital iron supplements to effective pain management solutions, our diverse portfolio is manufactured under stringent quality standards.
                 </p>
                 <p>
-                  Whether you are a healthcare professional seeking reliable treatments for your patients, or an individual looking for dependable health solutions, Avarise Lifescience stands by your side.
+                  Whether you are a healthcare professional seeking reliable treatments for your patients, or an individual looking for dependable health solutions, Avarise Life Sciences stands by your side.
                 </p>
               </div>
               
@@ -600,7 +600,7 @@ export default function App() {
                 Become a Partner
               </h2>
               <p className="text-white/70 text-[15px] sm:text-[18px] mb-8 leading-[1.7] max-w-xl">
-                Avarise Lifescience operates a trusted B2B pharmaceutical distribution network across Uttar Pradesh. We supply our 16 highly-specialized medical products directly to vetted healthcare channels.
+                Avarise Life Sciences operates a trusted B2B pharmaceutical distribution network across Uttar Pradesh. We supply our 16 highly-specialized medical products directly to vetted healthcare channels.
               </p>
               
               <div className="grid sm:grid-cols-3 gap-6 pt-6 border-t border-white/10">
@@ -731,7 +731,7 @@ export default function App() {
             <div className="lg:col-span-2">
               <div className="mb-6">
                 <span className="font-serif font-bold text-[24px] tracking-tight text-white uppercase">
-                  Avarise Lifescience
+                  Avarise Life Sciences
                 </span>
               </div>
               <p className="text-gray-400 max-w-sm mb-6 text-[14px] leading-[1.6]">
@@ -761,7 +761,7 @@ export default function App() {
           
           <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-[11px] uppercase tracking-wider text-gray-500 text-center md:text-left">
-              &copy; {new Date().getFullYear()} AVARISE LIFESCIENCE PVT LTD. All rights reserved.
+              &copy; {new Date().getFullYear()} AVARISE LIFE SCIENCES PVT LTD. All rights reserved.
             </p>
             <p className="text-[11px] uppercase tracking-wider text-gray-500 text-center md:text-right">
               Registered in Uttar Pradesh.
@@ -822,7 +822,7 @@ export default function App() {
                   <FaWhatsapp size={32} className="text-white drop-shadow-sm" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-[18px] leading-tight mb-1.5">Avarise Lifescience</h3>
+                  <h3 className="font-bold text-[18px] leading-tight mb-1.5">Avarise Life Sciences</h3>
                   <div className="flex items-center gap-2 opacity-95">
                     <span className="relative flex h-2.5 w-2.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-100 opacity-75"></span>
