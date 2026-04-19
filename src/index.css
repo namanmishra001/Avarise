@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Georgia&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Georgia', serif;
+  
+  --color-brand: #0F4C81;
+  --color-ink: #1A1A1A;
+  --color-paper: #FDFDFD;
+  --color-stone: #E5E5E5;
+  --color-muted: #555555;
+  --color-light: #F0F4F8;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-paper);
+}
+
